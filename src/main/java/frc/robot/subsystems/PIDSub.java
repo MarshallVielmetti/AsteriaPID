@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.PrintCommand;
 import static frc.robot.Constants.ShooterConstants.*;
 
 public class PIDSub extends PIDSubsystem {
-    
+
     private final TalonSRX m_motor1 = new WPI_TalonSRX(24);
     private final ArmFeedforward m_feedForward = new ArmFeedforward(kS, kCos, kV, kA);
 
@@ -23,16 +23,16 @@ public class PIDSub extends PIDSubsystem {
         super(new PIDController(kP, kI, kD));
         SmartDashboard.putNumber("Setpoint", setpoint);
         SmartDashboard.putNumber("EncoderPos", m_motor1.getSelectedSensorPosition());
+
+        enable();
     }
 
     @Override
     protected void useOutput(double output, double setpoint) {
         // TODO Auto-generated method stub
-        double ff = m_feedForward.calculate(setpoint, 0); //calc feedforward
+        double ff = m_feedForward.calculate(setpoint, 0); // TODO calc feedforward
 
-        setMotor(output + ff);
-
-        
+        setMotor(output);
     }
 
     @Override
@@ -45,28 +45,16 @@ public class PIDSub extends PIDSubsystem {
         m_motor1.set(ControlMode.Current, Output);
     }
 
-    private void motorPos(double pos) {
-        m_motor1.set(ControlMode.Position, pos);
-    }
-
-    public void initialize() {
-        disable();
-    }
-
     @Override
     public void periodic() {
-        super.periodic(); //make sure it's called
+        super.periodic(); // make sure it's called
         double newSetpoint = SmartDashboard.getNumber("Setpoint", 0);
         SmartDashboard.putNumber("EncoderPos", m_motor1.getSelectedSensorPosition());
         if (this.setpoint != newSetpoint) {
             this.setpoint = newSetpoint;
             this.setSetpoint(this.setpoint);
-            new PrintCommand("Set Setpoint");
-            this.motorPos(this.setpoint);
         }
 
     }
-
-    
 
 }
