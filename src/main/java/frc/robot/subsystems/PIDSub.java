@@ -10,11 +10,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 
-import static frc.robot.Constants.ShooterConstants.*;
+import static frc.robot.Constants.ArmConstants.*;
 
 public class PIDSub extends PIDSubsystem {
 
     private final TalonSRX m_motor1 = new WPI_TalonSRX(24);
+
+    // https://www.chiefdelphi.com/t/velocity-limiting-pid/164908/22
     private final ArmFeedforward m_feedForward = new ArmFeedforward(kS, kCos, kV, kA);
 
     private double setpoint = 0;

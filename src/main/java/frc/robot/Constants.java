@@ -15,12 +15,19 @@ package frc.robot;
  * wherever the constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final class ShooterConstants {
+    public static final class ArmConstants {
+
+        public static final int kTimeoutMs = 15;
+
+        // Motor IDs
+        public static final int kMotorID = 24;
 
         // PID Constants
         public static double kP = 0.01;
         public static double kI = 0.00000;
         public static double kD = 0.0001;
+
+        public static double kF = 0.0005;
 
         // Feedforward Constants
         public static double kS = 0.001; // static gain
