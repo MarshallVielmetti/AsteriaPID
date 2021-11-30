@@ -3,6 +3,9 @@
 Hello,
 Sorry I'm not there yet. I quickly put this together so that you guys can get started. I should be there around 6:30.
 
+Don't clone this repository, or try copy pasting the code. It probably will break something, and the point is for you guys to learn how to do this yourself.
+Instead, use this document as a reference, and if you get really stuck look at the code I wrote. But be warned, I probably had half an hour to do that so take every line with a grain of salt.
+
 I included two different examples. We're going to try building the WPILib one first, and if that works, then we'll look at using the integrated MotionMagic in the Talons.
 The code I have here probably doesn't work (because I haven't had a chance to test it yet) and the point of this exercise isn't to copy down code -- use what I have here as help, not the first source.
 
