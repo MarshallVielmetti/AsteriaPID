@@ -37,7 +37,7 @@ public class PIDSub extends PIDSubsystem {
     @Override
     protected void useOutput(double output, double setpoint) {
         // TODO Auto-generated method stub
-        double ff = m_feedForward.calculate(setpoint, 0); // TODO calc feedforward
+        double ff = m_feedForward.calculate(setpoint, 0); // TODO calc feedforward - ignore this, this is for future improvement
         setMotor(output);
     }
 
