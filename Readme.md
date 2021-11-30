@@ -52,6 +52,26 @@ By doing this, we avoid having to rewrite a _lot_ of boring code.
 
 What are the `enable()` and `disable()` methods?
 
+Try to create a method to run the motor - something like `setMotor(double setpoint)`
+This will allow us to avoid having to pass a lot of extra information to the motor every time, and should make our code more simple, and provide a better way to interact with the Arm subystem.
+
+See if you can get values to print to Smartdashboard.
+Start by Overriding the `periodic()` method.
+See if you can get the encoder value to appear on smart dashboard. Some lines of code that might help:
+
+```
+m_motor1.getSelectedSensorPosition();
+SmartDashboard.putNumber(name, value);
+```
+
+Try enabling the robot, and pushing the arm manually. This value should change if that is set up correctly.
+
+Hopefully I'm here by now, if not keep trying to work from the documentation. Sorry.
+
 ## TalonSRX Motion Magic
 
 To be honest I have to submit a college application so I don't have time to write this and I will proably be there before you get this far so don't worry about it.
+
+```
+
+```
