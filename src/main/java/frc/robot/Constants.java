@@ -5,25 +5,27 @@
 package frc.robot;
 
 /**
- * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
- * constants. This class should not be used for any other purpose. All constants should be declared
- * globally (i.e. public static). Do not put anything functional in this class.
+ * The Constants class provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants. This class should not be used for any other
+ * purpose. All constants should be declared globally (i.e. public static). Do
+ * not put anything functional in this class.
  *
- * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
+ * <p>
+ * It is advised to statically import this class (or one of its inner classes)
+ * wherever the constants are needed, to reduce verbosity.
  */
 public final class Constants {
     public static final class ShooterConstants {
 
-        //PID Constants
-        public static double kP = 0.1;
-        public static double kI = 0.00001;
-        public static double kD = 0.001;
+        // PID Constants
+        public static double kP = 0.01;
+        public static double kI = 0.00000;
+        public static double kD = 0.0001;
 
-        //Feedforward Constants
-        public static double kS = 0.001; //static gain
-        public static double kCos = 0.001; //gravity gain
-        public static double kV = 0.0001; //velocity gain
-        public static double kA = 0.0001; //Acceleration gain
+        // Feedforward Constants
+        public static double kS = 0.001; // static gain
+        public static double kCos = 0.001; // gravity gain
+        public static double kV = 0.0001; // velocity gain
+        public static double kA = 0.0001; // Acceleration gain
     }
 }
