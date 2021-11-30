@@ -32,10 +32,25 @@ Now we should be ready to get started.
 
 The first method we'll look at is using the PIDSubsystem class to use PID.
 Check the [PIDSubsystem Documetation](https://docs.wpilib.org/en/stable/docs/software/commandbased/pid-subsystems-commands.html)
+Also useful might be the [TalonSRX Documentation](https://www.ctr-electronics.com/talon-srx.html#product_tabs_technical_resources) (Which I really dislike to be honest, but may have useful examples for working with the Talons as opposed to the SparkMaxes)
 
 See if you can use the examples to try and start actually implementing the methods from before.
-What should the 'use output' method do?
-What should the 'get measurement' method do?
+What should the `useOutput(double output, double setpoint)` method do?
+What should the `getMeasurement()` method do?
+
+Try to define the Constructor - thats the
+
+```
+public ArmSubsystem() {
+    super(new PIDController(...));
+}
+```
+
+Try to create the PID Controller and pass it to the super
+The super here refers to the constructor of the PIDSubsystem class. By 'extending' this class, we 'inherit' the methods from the super class.
+By doing this, we avoid having to rewrite a _lot_ of boring code.
+
+What are the `enable()` and `disable()` methods?
 
 ## TalonSRX Motion Magic
 
