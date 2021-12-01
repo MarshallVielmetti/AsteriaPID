@@ -24,8 +24,6 @@ public class PIDSub extends PIDSubsystem {
     public PIDSub() {
         super(new PIDController(kP, kI, kD));
 
-        m_motor1.setInverted(true);
-
         m_motor1.setSelectedSensorPosition(0);
 
         SmartDashboard.putNumber("Setpoint", setpoint);
@@ -37,7 +35,9 @@ public class PIDSub extends PIDSubsystem {
     @Override
     protected void useOutput(double output, double setpoint) {
         // TODO Auto-generated method stub
-        double ff = m_feedForward.calculate(setpoint, 0); // TODO calc feedforward - ignore this, this is for future improvement
+        double ff = m_feedForward.calculate(setpoint, 0); // TODO calc feedforward - ignore this, this is for future
+                                                          // improvement
+
         setMotor(output);
     }
 
@@ -55,6 +55,8 @@ public class PIDSub extends PIDSubsystem {
             output = -0.4;
         }
         SmartDashboard.putNumber("Output", output);
+
+        output *= -1;
         m_motor1.set(ControlMode.PercentOutput, output);
     }
 
@@ -63,8 +65,7 @@ public class PIDSub extends PIDSubsystem {
         super.periodic(); // make sure it's called
         double newSetpoint = SmartDashboard.getNumber("Setpoint", 0);
         SmartDashboard.putNumber("EncoderPos", m_motor1.getSelectedSensorPosition());
-        if (this.setpoint != newSetpoint) {
-            this.setpoint = newSetpoint;
+        if (this.getSetpoint() != newSetpoint) {
             this.setSetpoint(this.setpoint);
         }
 
